@@ -1,10 +1,12 @@
 // create function that randomly generates one of: rock, paper or scissors.
 function computerPlay() {
+
 // create variable to hold return value.
 let computerChoice;
+
 // randomly generate a number between 1 and 3.
 let randNum = Math.round(Math.random()*2)+1;
-console.log(`randNum value: ${randNum}`);
+
 
 // if number is 1 then return rock.
 // if number is 2 then return paper.
@@ -16,15 +18,6 @@ if (randNum === 1) {
 } else {
     computerChoice = "scissors";
 }
+
 return computerChoice;
 }
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);
-console.log(`computerPlay value: ${computerPlay()}`);

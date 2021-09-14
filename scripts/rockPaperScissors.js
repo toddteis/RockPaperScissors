@@ -4,6 +4,19 @@ const playerSelection = "scissors";
 // Create a variable to store the computers choice.
 const computerSelection = computerPlay();
 
+// Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
+    // Create a variable to store the total amount of rounds to play.
+    // Create a variable to store the player wins.
+    // Create a variable to store the computer wins.
+    // Create a variable to store the amount of draws.
+    // Create a for loop that usings the variable "total amount of rounds to play".
+        // Create a variable that prompts the player for a choice.
+        // Create a variable that calls the computerPlay() to get a computer choice.
+        // call the playRound function and pass player choice and computer choice as parameters.
+        // update the winner or draw variable based on the return result.
+        // console.log result of the round.
+    // console.log the result of the five rounds.
+
 // Create a function that takes the players and computers choices as
 // parameters and plays a round of Rock, Paper, Scissors.
 function playRound(playerSelection, computerSelection) {

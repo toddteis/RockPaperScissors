@@ -48,10 +48,6 @@ function playRound(playerSelection, computerSelection) {
     // return the result variable.
     return result;
 }
-    
-// console log the function with player and computer selections.
-console.log(playRound(playerSelection, computerSelection));
-
 
 // create function that randomly generates one of: rock, paper or scissors.
 function computerPlay() {

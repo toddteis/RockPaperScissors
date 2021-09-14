@@ -1,21 +1,66 @@
+// Moved to game()
 // Create a variable to store the players choice.
-const playerSelection = "scissors";
+// const playerSelection = "scissors";
 
+// Moved to game()
 // Create a variable to store the computers choice.
-const computerSelection = computerPlay();
+// const computerSelection = computerPlay();
 
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
+function game() {
     // Create a variable to store the total amount of rounds to play.
+    let numberOfRounds = 5;
+
     // Create a variable to store the player wins.
+    let playerWins = 0;
+
     // Create a variable to store the computer wins.
+    let computerWins = 0;
+
     // Create a variable to store the amount of draws.
+    let draws = 0;
+
     // Create a for loop that usings the variable "total amount of rounds to play".
+    for (let index = 0; index < numberOfRounds; index++) {
+        // Create a return variable.
+        let result;
         // Create a variable that prompts the player for a choice.
+        let playerSelection = "scissors";
         // Create a variable that calls the computerPlay() to get a computer choice.
+        let computerSelection = computerPlay();
         // call the playRound function and pass player choice and computer choice as parameters.
+        result = playRound(playerSelection, computerSelection);
         // update the winner or draw variable based on the return result.
+        // ? What return from playRound() will be useful? need to rework playRound().
+
+        // if player wins then add one to playerWins variable.
+        if (result = "player wins") {
+            playerWins++;
+            // else if computer wins then add one to computerWins variable.
+        } else if (result = "computer wins") {
+            computerWins++;
+            // else add one to the draws variable.
+        } else {
+            draws++;
+        }
+        
         // console.log result of the round.
+        console.log(result);
+    }
+
     // console.log the result of the five rounds.
+    // if playerWins is greater than computerWins then print message.
+    if (playersWins > computerWins) {
+        console.log(`Player Wins :)`);
+        // else if computerWins is greater than playerWins then print message.
+    } else if (computerWins > playerWins) {
+        console.log(`Computer Wins :(`)
+        // else its a draw and print message.
+    } else {
+        console.log(`Its a draw. :|`)
+    }
+}
+
 
 // Create a function that takes the players and computers choices as
 // parameters and plays a round of Rock, Paper, Scissors.

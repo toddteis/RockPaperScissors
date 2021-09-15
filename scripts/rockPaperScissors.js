@@ -1,7 +1,7 @@
 // Moved to game()
 // Create a variable to store the players choice.
 // const playerSelection = "scissors";
-
+game();
 // Moved to game()
 // Create a variable to store the computers choice.
 // const computerSelection = computerPlay();
@@ -25,7 +25,7 @@ function game() {
         // Create a return variable.
         let result;
         // Create a variable that prompts the player for a choice.
-        let playerSelection = "scissors";
+        let playerSelection = prompt("Rock, Paper or Scissors?");
         // Create a variable that calls the computerPlay() to get a computer choice.
         let computerSelection = computerPlay();
         // call the playRound function and pass player choice and computer choice as parameters.
@@ -34,14 +34,17 @@ function game() {
         // ? What return from playRound() will be useful? need to rework playRound().
 
         // if player wins then add one to playerWins variable.
-        if (result = "player wins") {
+        if (result === "player wins") {
             playerWins++;
+            result = `Round ${index +1}: ${result}, ${playerSelection} beats ${computerSelection}`;
             // else if computer wins then add one to computerWins variable.
-        } else if (result = "computer wins") {
+        } else if (result === "computer wins") {
             computerWins++;
+            result = `Round ${index +1}: ${result}, ${computerSelection} beats ${playerSelection}`;
             // else add one to the draws variable.
         } else {
             draws++;
+            result = `Round ${index +1}: ${result}, ${computerSelection} versus ${playerSelection}`;
         }
         
         // console.log result of the round.
@@ -50,14 +53,14 @@ function game() {
 
     // console.log the result of the five rounds.
     // if playerWins is greater than computerWins then print message.
-    if (playersWins > computerWins) {
-        console.log(`Player Wins :)`);
+    if (playerWins > computerWins) {
+        console.log(`Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`);
         // else if computerWins is greater than playerWins then print message.
     } else if (computerWins > playerWins) {
-        console.log(`Computer Wins :(`)
+        console.log(`Computer Wins :( ${computerWins} to ${playerWins}, Draws: ${draws}`)
         // else its a draw and print message.
     } else {
-        console.log(`Its a draw. :|`)
+        console.log(`Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`)
     }
 }
 

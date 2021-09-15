@@ -73,34 +73,34 @@ function playRound(playerSelection, computerSelection) {
 
     // If player choice is rock and computer choice is rock, its a  draw.
     if (lowerCasePlayerSelection === "rock" && computerSelection === "rock") {
-        result = "Rock against Rock equals a draw!!";
+        result = "draw";
         // else if player choice is rock and computer choice is paper, computer wins.
     } else if (lowerCasePlayerSelection === "rock" && computerSelection === "paper") {
-        result = "You lose, Paper beats Rock!!";
+        result = "computer wins";
         // else if player choice is rock and computer choice is scissors, player wins.
     } else if (lowerCasePlayerSelection === "rock" && computerSelection === "scissors") {
-        result = "You win, Rock beats Scissors!!";
+        result = "player wins";
         // else if player choice is paper and computer choice is rock, player wins.
     } else if (lowerCasePlayerSelection === "paper" && computerSelection === "rock") {
-        result = "You win, Paper beats Rock!!"
+        result = "player wins"
         // else if player choice is paper and computer choice is paper, its a draw.
     } else if (lowerCasePlayerSelection === "paper" && computerSelection === "paper") {
-        result = "Paper against Paper equals a draw!!";
+        result = "draw";
         // else if player choice is paper and computer choice is scissors, computer wins.
     } else if (lowerCasePlayerSelection === "paper" && computerSelection === "scissors") {
-        result = "You lose, Scissors beats Paper!!";
+        result = "computer wins";
         // else if player choice is scissors and computer choice is rock, computer wins.
     } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "rock") {
-        result = "You lose, Rock beats Scissors!!";
+        result = "computer wins";
         // else if player choice is scissors and computer choice is paper, player wins.
     } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "rock") {
-        result = "You win, Scissors beats Rock!!";
+        result = "player wins";
         // else if player choice is scissors and computer choice is paper, player wins.
     } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "paper") {
-        result = "You win, Scissors beats Paper!!";
+        result = "player wins";
         // else player choice is scissors and computer choice is scissors, its a draw.
     } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "scissors") {
-        result = "Scissors against Scissors equals a draw!!";
+        result = "draw";
     } 
 
     // return the result variable.

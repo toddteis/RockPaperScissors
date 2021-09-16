@@ -1,10 +1,4 @@
-// Moved to game()
-// Create a variable to store the players choice.
-// const playerSelection = "scissors";
 game();
-// Moved to game()
-// Create a variable to store the computers choice.
-// const computerSelection = computerPlay();
 
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
 function game() {

@@ -54,9 +54,6 @@ function game() {
     return result;
 }
 
-// ***************************************************
-// **** PLAN FOR: Prompt & Validate player input. ****
-
 // Create a function that prompts for the use choice and validates the input.
 function getPlayerChoice() {
     // Create return variable.
@@ -79,21 +76,6 @@ function getPlayerChoice() {
         }
      }
      
-
-    /*
-    // Create a while statement, repeat while boolean variable is false.
-    while (isValidate === false) {
-        // Change result to lower case. NOTE: Currently performed in playRound() and will
-        // to be removed from there.
-        result = result.toLowerCase();
-        // If result is equal to rock, paper or scissors then set boolean variable to true.
-        if (result === "rock" || result === "paper" || result === "scissors") {
-            isValidate = true;
-        } else {
-            result = prompt("Invalidate entry. Choose between Rock, Paper or Scissors.")
-        }
-    }
-    */
     return result;        
 }
 
@@ -108,6 +90,7 @@ function validateChoice(choice) {
     } else {
         result  = false;
     }
+    
     return result;
 }
 
@@ -130,7 +113,7 @@ function calcOverAllWinner(playerWins, computerWins, draws) {
         result = `Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`;
     }
 
-    // return the result
+    // return the result variable
     return result;
 }
 
@@ -138,10 +121,6 @@ function calcOverAllWinner(playerWins, computerWins, draws) {
 function playRound(playerSelection, computerSelection) {
     // Create a variable to hold the result.
     let result;
-
-    // **** remove: moved to getPlayerChoice()
-    // Convert player choice to all lower-capitals.
-    // let toLowerCasePlayerSelection = playerSelection.toLowerCase();
 
     // If player choice is rock and computer choice is rock, its a  draw.
     if (playerSelection === "rock" && computerSelection === "rock") {

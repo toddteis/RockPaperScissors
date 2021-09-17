@@ -2,6 +2,9 @@ game();
 
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
 function game() {
+    // Create a variable to store result
+    let result;
+    
     // Create a variable to store the total amount of rounds to play.
     let numberOfRounds = 5;
 
@@ -45,12 +48,15 @@ function game() {
         console.log(result);
     }
 
+    result = calcWinner(playerWins, computerWins, draws);
+
+    console.log(result)
     // console.log the result of the five rounds.
     // if playerWins is greater than computerWins then print message.
 
     // **** Refactor if statement into a function taking parameters playerWins, computerWins and draws.
     // **** and return a string of the winner and statistics.
-
+    /*
     if (playerWins > computerWins) {
         console.log(`Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`);
         // else if computerWins is greater than playerWins then print message.
@@ -60,22 +66,38 @@ function game() {
     } else {
         console.log(`Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`)
     }
+    */
+    
 }
 
 // **** Make a function that takes 3 parameters, playWins, computerWins and draws and return a string
 // on the winner and the score.
+
+function calcWinner(playerWins, computerWins, draws) {
     // Create variable to hold the result.
+    let result;
+
     // If playerWins is greater than computerWins then create a string announcing the player
     // as the winner with the scores.
-    // Else if computerWins is greater than playerWins then create a string announcing the computer
-    // as the winner with the scores.
-    // Else create a string announcing its a draw with the scores.
+    if (playerWins > computerWins) {
+        result = `Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`;
+        // Else if computerWins is greater than playerWins then create a string announcing the computer
+        // as the winner with the scores.
+    } else if (computerWins > playerWins) {
+        result = `Computer Wins :( ${computerWins} to ${playerWins}, Draws: ${draws}`;
+        // Else create a string announcing its a draw with the scores.
+    } else {
+        result = `Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`;
+    }
+    
     // return the result
+    return result;
+}
+    
 
 
 
-// Create a function that takes the players and computers choices as
-// parameters and plays a round of Rock, Paper, Scissors.
+
 function playRound(playerSelection, computerSelection) {
     // Create a variable to hold the result.
     let result;

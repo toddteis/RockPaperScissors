@@ -1,4 +1,5 @@
-game();
+// start game
+console.log(game());
 
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
 function game() {
@@ -27,9 +28,8 @@ function game() {
         let computerSelection = computerPlay();
         // call the playRound function and pass player choice and computer choice as parameters.
         result = playRound(playerSelection, computerSelection);
+ 
         // update the winner or draw variable based on the return result.
-        // ? What return from playRound() will be useful? need to rework playRound().
-
         // if player wins then add one to playerWins variable.
         if (result === "player wins") {
             playerWins++;
@@ -48,32 +48,15 @@ function game() {
         console.log(result);
     }
 
-    result = calcWinner(playerWins, computerWins, draws);
-
-    console.log(result)
-    // console.log the result of the five rounds.
-    // if playerWins is greater than computerWins then print message.
-
-    // **** Refactor if statement into a function taking parameters playerWins, computerWins and draws.
-    // **** and return a string of the winner and statistics.
-    /*
-    if (playerWins > computerWins) {
-        console.log(`Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`);
-        // else if computerWins is greater than playerWins then print message.
-    } else if (computerWins > playerWins) {
-        console.log(`Computer Wins :( ${computerWins} to ${playerWins}, Draws: ${draws}`)
-        // else its a draw and print message.
-    } else {
-        console.log(`Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`)
-    }
-    */
+    // Calculate the winner and store in a results variable and return.
+    result = calcOverAllWinner(playerWins, computerWins, draws);
     
+    return result;
 }
 
-// **** Make a function that takes 3 parameters, playWins, computerWins and draws and return a string
-// on the winner and the score.
-
-function calcWinner(playerWins, computerWins, draws) {
+// Create a function that takes 3 parameters, playWins, computerWins and draws and return a string
+// of the winner of the 5 rounds and the score.
+function calcOverAllWinner(playerWins, computerWins, draws) {
     // Create variable to hold the result.
     let result;
 
@@ -89,15 +72,12 @@ function calcWinner(playerWins, computerWins, draws) {
     } else {
         result = `Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`;
     }
-    
+
     // return the result
     return result;
 }
-    
 
-
-
-
+// create a function that takes two parameters and calculates the winner of the round.
 function playRound(playerSelection, computerSelection) {
     // Create a variable to hold the result.
     let result;

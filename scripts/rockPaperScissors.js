@@ -23,7 +23,7 @@ function game() {
         // Create a return variable.
         let result;
         // Create a variable that prompts the player for a choice.
-        let playerSelection = prompt("Rock, Paper or Scissors?");
+        let playerSelection = getPlayerChoice();
         // Create a variable that calls the computerPlay() to get a computer choice.
         let computerSelection = computerPlay();
         // call the playRound function and pass player choice and computer choice as parameters.
@@ -58,14 +58,58 @@ function game() {
 // **** PLAN FOR: Prompt & Validate player input. ****
 
 // Create a function that prompts for the use choice and validates the input.
+function getPlayerChoice() {
     // Create return variable.
+    let result;
     // Create a boolean variable set to false.
+    let isValidate = false;
+    // Prompt for input and store in result variable.
+    result = prompt("Rock, Paper or Scissors?");
+    // change player choice to lower case.
+    result = result.toLowerCase();
+     // Create a while statement, repeat while boolean variable is false.
+     while (isValidate === false) {
+        // If result is equal to rock, paper or scissors then set boolean variable to true.
+        if (validateChoice(result)) {
+            isValidate = true;
+            // else prompt player again with invalidate message
+        } else {
+            result = prompt("Invalidate entry. Choose between Rock, Paper or Scissors.");
+            result = result.toLowerCase();
+        }
+     }
+     
+
+    /*
     // Create a while statement, repeat while boolean variable is false.
-        // Prompt for input and store in result variable.
+    while (isValidate === false) {
         // Change result to lower case. NOTE: Currently performed in playRound() and will
         // to be removed from there.
+        result = result.toLowerCase();
         // If result is equal to rock, paper or scissors then set boolean variable to true.
+        if (result === "rock" || result === "paper" || result === "scissors") {
+            isValidate = true;
+        } else {
+            result = prompt("Invalidate entry. Choose between Rock, Paper or Scissors.")
+        }
+    }
+    */
+    return result;        
+}
 
+// create a function that validates the player choice
+function validateChoice(choice) {
+    // create return variable
+    let result;
+    // If choice is equal to rock, paper or scissors set return variable to true.
+    if (choice === "rock" || choice === "paper" || choice === "scissors") {
+        result = true;
+        // else set return variable to false
+    } else {
+        result  = false;
+    }
+    return result;
+}
 
 // Create a function that takes 3 parameters, playWins, computerWins and draws and return a string
 // of the winner of the 5 rounds and the score.
@@ -95,38 +139,39 @@ function playRound(playerSelection, computerSelection) {
     // Create a variable to hold the result.
     let result;
 
+    // **** remove: moved to getPlayerChoice()
     // Convert player choice to all lower-capitals.
-    let lowerCasePlayerSelection = playerSelection.toLowerCase();
+    // let toLowerCasePlayerSelection = playerSelection.toLowerCase();
 
     // If player choice is rock and computer choice is rock, its a  draw.
-    if (lowerCasePlayerSelection === "rock" && computerSelection === "rock") {
+    if (playerSelection === "rock" && computerSelection === "rock") {
         result = "draw";
         // else if player choice is rock and computer choice is paper, computer wins.
-    } else if (lowerCasePlayerSelection === "rock" && computerSelection === "paper") {
+    } else if ( playerSelection === "rock" && computerSelection === "paper") {
         result = "computer wins";
         // else if player choice is rock and computer choice is scissors, player wins.
-    } else if (lowerCasePlayerSelection === "rock" && computerSelection === "scissors") {
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
         result = "player wins";
         // else if player choice is paper and computer choice is rock, player wins.
-    } else if (lowerCasePlayerSelection === "paper" && computerSelection === "rock") {
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
         result = "player wins"
         // else if player choice is paper and computer choice is paper, its a draw.
-    } else if (lowerCasePlayerSelection === "paper" && computerSelection === "paper") {
+    } else if (playerSelection === "paper" && computerSelection === "paper") {
         result = "draw";
         // else if player choice is paper and computer choice is scissors, computer wins.
-    } else if (lowerCasePlayerSelection === "paper" && computerSelection === "scissors") {
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
         result = "computer wins";
         // else if player choice is scissors and computer choice is rock, computer wins.
-    } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "rock") {
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
         result = "computer wins";
         // else if player choice is scissors and computer choice is paper, player wins.
-    } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "rock") {
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
         result = "player wins";
         // else if player choice is scissors and computer choice is paper, player wins.
-    } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "paper") {
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
         result = "player wins";
         // else player choice is scissors and computer choice is scissors, its a draw.
-    } else if (lowerCasePlayerSelection === "scissors" && computerSelection === "scissors") {
+    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         result = "draw";
     } 
 

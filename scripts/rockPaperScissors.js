@@ -47,6 +47,10 @@ function game() {
 
     // console.log the result of the five rounds.
     // if playerWins is greater than computerWins then print message.
+
+    // **** Refactor if statement into a function taking parameters playerWins, computerWins and draws.
+    // **** and return a string of the winner and statistics.
+
     if (playerWins > computerWins) {
         console.log(`Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`);
         // else if computerWins is greater than playerWins then print message.
@@ -57,6 +61,17 @@ function game() {
         console.log(`Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`)
     }
 }
+
+// **** Make a function that takes 3 parameters, playWins, computerWins and draws and return a string
+// on the winner and the score.
+    // Create variable to hold the result.
+    // If playerWins is greater than computerWins then create a string announcing the player
+    // as the winner with the scores.
+    // Else if computerWins is greater than playerWins then create a string announcing the computer
+    // as the winner with the scores.
+    // Else create a string announcing its a draw with the scores.
+    // return the result
+
 
 
 // Create a function that takes the players and computers choices as

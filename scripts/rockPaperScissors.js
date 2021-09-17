@@ -54,6 +54,19 @@ function game() {
     return result;
 }
 
+// ***************************************************
+// **** PLAN FOR: Prompt & Validate player input. ****
+
+// Create a function that prompts for the use choice and validates the input.
+    // Create return variable.
+    // Create a boolean variable set to false.
+    // Create a while statement, repeat while boolean variable is false.
+        // Prompt for input and store in result variable.
+        // Change result to lower case. NOTE: Currently performed in playRound() and will
+        // to be removed from there.
+        // If result is equal to rock, paper or scissors then set boolean variable to true.
+
+
 // Create a function that takes 3 parameters, playWins, computerWins and draws and return a string
 // of the winner of the 5 rounds and the score.
 function calcOverAllWinner(playerWins, computerWins, draws) {

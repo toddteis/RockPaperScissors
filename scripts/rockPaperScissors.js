@@ -1,98 +1,111 @@
 // start game
 // console.log(game());
 
+let playersSelection;
+
+const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playersSelection = button.id;
+        console.log(playersSelection);
+    })
+})
+
+// console.log(playersSelection);
+
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
-function game() {
-    // Create a variable to store result
-    let result;
+// function game() {
+//     // Create a variable to store result
+//     let result;
     
-    // Create a variable to store the total amount of rounds to play.
-    let numberOfRounds = 5;
+//     // Create a variable to store the total amount of rounds to play.
+//     let numberOfRounds = 5;
 
-    // Create a variable to store the player wins.
-    let playerWins = 0;
+//     // Create a variable to store the player wins.
+//     let playerWins = 0;
 
-    // Create a variable to store the computer wins.
-    let computerWins = 0;
+//     // Create a variable to store the computer wins.
+//     let computerWins = 0;
 
-    // Create a variable to store the amount of draws.
-    let draws = 0;
+//     // Create a variable to store the amount of draws.
+//     let draws = 0;
 
-    // // Create a for loop that usings the variable "total amount of rounds to play".
-    // for (let index = 0; index < numberOfRounds; index++) {
-    //     // Create a return variable.
-    //     let result;
-    //     // Create a variable that prompts the player for a choice.
-    //     let playerSelection = getPlayerChoice();
-    //     // Create a variable that calls the computerPlay() to get a computer choice.
-    //     let computerSelection = computerPlay();
-    //     // call the playRound function and pass player choice and computer choice as parameters.
-    //     result = playRound(playerSelection, computerSelection);
+//     // Create a for loop that usings the variable "total amount of rounds to play".
+//     for (let index = 0; index < numberOfRounds; index++) {
+//         // Create a return variable.
+//         let result;
+//         // Create a variable that prompts the player for a choice.
+//         let playerSelection = getPlayerChoice();
+//         // Create a variable that calls the computerPlay() to get a computer choice.
+//         let computerSelection = computerPlay();
+//         // call the playRound function and pass player choice and computer choice as parameters.
+//         result = playRound(playerSelection, computerSelection);
  
-    //     // update the winner or draw variable based on the return result.
-    //     // if player wins then add one to playerWins variable.
-    //     if (result === "player wins") {
-    //         playerWins++;
-    //         result = `Round ${index +1}: ${result}, ${playerSelection} beats ${computerSelection}`;
-    //         // else if computer wins then add one to computerWins variable.
-    //     } else if (result === "computer wins") {
-    //         computerWins++;
-    //         result = `Round ${index +1}: ${result}, ${computerSelection} beats ${playerSelection}`;
-    //         // else add one to the draws variable.
-    //     } else {
-    //         draws++;
-    //         result = `Round ${index +1}: ${result}, ${computerSelection} versus ${playerSelection}`;
-    //     }
+//         // update the winner or draw variable based on the return result.
+//         // if player wins then add one to playerWins variable.
+//         if (result === "player wins") {
+//             playerWins++;
+//             result = `Round ${index +1}: ${result}, ${playerSelection} beats ${computerSelection}`;
+//             // else if computer wins then add one to computerWins variable.
+//         } else if (result === "computer wins") {
+//             computerWins++;
+//             result = `Round ${index +1}: ${result}, ${computerSelection} beats ${playerSelection}`;
+//             // else add one to the draws variable.
+//         } else {
+//             draws++;
+//             result = `Round ${index +1}: ${result}, ${computerSelection} versus ${playerSelection}`;
+//         }
         
-        // console.log result of the round.
-        console.log(result);
-    }
+//         // console.log result of the round.
+//         console.log(result);
+//     }
 
-    // Calculate the winner and store in a results variable and return.
-    result = calcOverAllWinner(playerWins, computerWins, draws);
+//     // Calculate the winner and store in a results variable and return.
+//     result = calcOverAllWinner(playerWins, computerWins, draws);
     
-    return result;
-}
+//     return result;
+// }
 
 // Create a function that prompts for the use choice and validates the input.
-function getPlayerChoice() {
-    // Create return variable.
-    let result;
-    // Create a boolean variable set to false.
-    let isValidate = false;
-    // Prompt for input and store in result variable.
-    result = prompt("Rock, Paper or Scissors?");
-    // change player choice to lower case.
-    result = result.toLowerCase();
-     // Create a while statement, repeat while boolean variable is false.
-     while (isValidate === false) {
-        // If result is equal to rock, paper or scissors then set boolean variable to true.
-        if (validateChoice(result)) {
-            isValidate = true;
-            // else prompt player again with invalidate message
-        } else {
-            result = prompt("Invalidate entry. Choose between Rock, Paper or Scissors.");
-            result = result.toLowerCase();
-        }
-     }
+// function getPlayerChoice() {
+//     // Create return variable.
+//     let result;
+//     // Create a boolean variable set to false.
+//     let isValidate = false;
+//     // Prompt for input and store in result variable.
+//     result = prompt("Rock, Paper or Scissors?");
+//     // change player choice to lower case.
+//     result = result.toLowerCase();
+//      // Create a while statement, repeat while boolean variable is false.
+//      while (isValidate === false) {
+//         // If result is equal to rock, paper or scissors then set boolean variable to true.
+//         if (validateChoice(result)) {
+//             isValidate = true;
+//             // else prompt player again with invalidate message
+//         } else {
+//             result = prompt("Invalidate entry. Choose between Rock, Paper or Scissors.");
+//             result = result.toLowerCase();
+//         }
+//      }
      
-    return result;        
-}
+//     return result;        
+// }
 
 // create a function that validates the player choice
-function validateChoice(choice) {
-    // create return variable
-    let result;
-    // If choice is equal to rock, paper or scissors set return variable to true.
-    if (choice === "rock" || choice === "paper" || choice === "scissors") {
-        result = true;
-        // else set return variable to false
-    } else {
-        result  = false;
-    }
+// function validateChoice(choice) {
+//     // create return variable
+//     let result;
+//     // If choice is equal to rock, paper or scissors set return variable to true.
+//     if (choice === "rock" || choice === "paper" || choice === "scissors") {
+//         result = true;
+//         // else set return variable to false
+//     } else {
+//         result  = false;
+//     }
     
-    return result;
-}
+//     return result;
+// }
 
 // Create a function that takes 3 parameters, playWins, computerWins and draws and return a string
 // of the winner of the 5 rounds and the score.

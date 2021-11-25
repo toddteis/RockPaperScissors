@@ -1,5 +1,5 @@
 // start game
-console.log(game());
+// console.log(game());
 
 // Create a function that plays 5 rounds of playRound, keeping score and reports the winner.
 function game() {
@@ -18,31 +18,31 @@ function game() {
     // Create a variable to store the amount of draws.
     let draws = 0;
 
-    // Create a for loop that usings the variable "total amount of rounds to play".
-    for (let index = 0; index < numberOfRounds; index++) {
-        // Create a return variable.
-        let result;
-        // Create a variable that prompts the player for a choice.
-        let playerSelection = getPlayerChoice();
-        // Create a variable that calls the computerPlay() to get a computer choice.
-        let computerSelection = computerPlay();
-        // call the playRound function and pass player choice and computer choice as parameters.
-        result = playRound(playerSelection, computerSelection);
+    // // Create a for loop that usings the variable "total amount of rounds to play".
+    // for (let index = 0; index < numberOfRounds; index++) {
+    //     // Create a return variable.
+    //     let result;
+    //     // Create a variable that prompts the player for a choice.
+    //     let playerSelection = getPlayerChoice();
+    //     // Create a variable that calls the computerPlay() to get a computer choice.
+    //     let computerSelection = computerPlay();
+    //     // call the playRound function and pass player choice and computer choice as parameters.
+    //     result = playRound(playerSelection, computerSelection);
  
-        // update the winner or draw variable based on the return result.
-        // if player wins then add one to playerWins variable.
-        if (result === "player wins") {
-            playerWins++;
-            result = `Round ${index +1}: ${result}, ${playerSelection} beats ${computerSelection}`;
-            // else if computer wins then add one to computerWins variable.
-        } else if (result === "computer wins") {
-            computerWins++;
-            result = `Round ${index +1}: ${result}, ${computerSelection} beats ${playerSelection}`;
-            // else add one to the draws variable.
-        } else {
-            draws++;
-            result = `Round ${index +1}: ${result}, ${computerSelection} versus ${playerSelection}`;
-        }
+    //     // update the winner or draw variable based on the return result.
+    //     // if player wins then add one to playerWins variable.
+    //     if (result === "player wins") {
+    //         playerWins++;
+    //         result = `Round ${index +1}: ${result}, ${playerSelection} beats ${computerSelection}`;
+    //         // else if computer wins then add one to computerWins variable.
+    //     } else if (result === "computer wins") {
+    //         computerWins++;
+    //         result = `Round ${index +1}: ${result}, ${computerSelection} beats ${playerSelection}`;
+    //         // else add one to the draws variable.
+    //     } else {
+    //         draws++;
+    //         result = `Round ${index +1}: ${result}, ${computerSelection} versus ${playerSelection}`;
+    //     }
         
         // console.log result of the round.
         console.log(result);

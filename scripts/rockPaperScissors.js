@@ -32,7 +32,7 @@ function game(playersSelection) {
 
 function round(playersSelection) {
     let computersSelection = computerPlay();
-    let result =playRound(playersSelection, computersSelection);
+    let result = playRound(playersSelection, computersSelection);
     return result;
 }
 
@@ -59,9 +59,23 @@ function displayResult(roundResult) {
 function checkForWinner() {
     if(playerWins === 3){
         console.log('Player Wins!!!');
+        haveWinner('player');
     } else if (computerWins === 3) {
         console.log('Computer Wins!!!');
+        haveWinner('computer');
     }
+}
+
+function haveWinner(winner) {
+    console.log(`the winner is ${winner}.`)
+    resetScores();
+}
+
+function resetScores() {
+    roundNumber = 0;
+    playerWins = 0;
+    computerWins = 0;
+    draws = 0;
 }
 
 // console.log(playersSelection);

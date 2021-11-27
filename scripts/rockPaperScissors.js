@@ -3,21 +3,44 @@
 
 // let playersSelection;
 const summary = document.querySelector('.summary')
-const buttons = document.querySelectorAll('.btn');
+const itemButtons = document.querySelectorAll('.item-btn');
+let roundNumber = 0;
+let playerWins = 0;
+let computerWins = 0;
+let draws = 0;
 
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        let playersSelection = button.id;
-        round(playersSelection);
+itemButtons.forEach((itemButton) => {
+    itemButton.addEventListener('click', () => {
+        let playersSelection = itemButton.id;
+        game(playersSelection);
     })
 })
+
+function game(playersSelection) {
+    //increase round number
+    roundNumber++;
+    console.log(roundNumber);
+    //run round
+    let roundResult = round(playersSelection);
+    //increment winner or draw variables
+
+    // display result
+    displayResult(roundResult);
+
+    // check if someone has won three
+
+}
 
 function round(playersSelection) {
     let computersSelection = computerPlay();
     let result =playRound(playersSelection, computersSelection);
-    console.log(result);
+    return result;
+}
+
+function displayResult(roundResult) {
+    console.log(roundResult);
     const pElement = document.createElement('p');
-    pElement.textContent = result;
+    pElement.textContent = `Round ${roundNumber}: ${roundResult}`;
     summary.append(pElement);
 }
 

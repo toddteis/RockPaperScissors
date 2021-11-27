@@ -27,6 +27,7 @@ function game(playersSelection) {
     displayResult(roundResult);
 
     // check if someone has won three
+    checkForWinner();
 }
 
 function round(playersSelection) {
@@ -53,6 +54,14 @@ function displayResult(roundResult) {
     const pElement = document.createElement('p');
     pElement.textContent = `Round ${roundNumber}: ${roundResult}`;
     summary.append(pElement);
+}
+
+function checkForWinner() {
+    if(playerWins === 3){
+        console.log('Player Wins!!!');
+    } else if (computerWins === 3) {
+        console.log('Computer Wins!!!');
+    }
 }
 
 // console.log(playersSelection);

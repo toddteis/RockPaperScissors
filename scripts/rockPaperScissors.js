@@ -19,22 +19,33 @@ itemButtons.forEach((itemButton) => {
 function game(playersSelection) {
     //increase round number
     roundNumber++;
-    console.log(roundNumber);
     //run round
     let roundResult = round(playersSelection);
     //increment winner or draw variables
-
+    updateScores(roundResult);
     // display result
     displayResult(roundResult);
 
     // check if someone has won three
-
 }
 
 function round(playersSelection) {
     let computersSelection = computerPlay();
     let result =playRound(playersSelection, computersSelection);
     return result;
+}
+
+function updateScores(roundResult) {
+    if(roundResult==="player wins") {
+        playerWins++;
+        console.log(playerWins);
+    } else if (roundResult ==='computer wins') {
+        computerWins++;
+        console.log(computerWins);
+    } else {
+        draws++;
+        console.log(draws);
+    }
 }
 
 function displayResult(roundResult) {

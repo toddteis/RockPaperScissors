@@ -68,6 +68,9 @@ function checkForWinner() {
 
 function haveWinner(winner) {
     console.log(`the winner is ${winner}.`)
+    const pElement = document.createElement('p');
+    pElement.textContent = `The winner is ${winner}`;
+    summary.append(pElement);
     resetScores();
 }
 

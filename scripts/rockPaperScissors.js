@@ -1,16 +1,25 @@
 // start game
 // console.log(game());
 
-let playersSelection;
-
+// let playersSelection;
+const summary = document.querySelector('.summary')
 const buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playersSelection = button.id;
-        console.log(playersSelection);
+        let playersSelection = button.id;
+        round(playersSelection);
     })
 })
+
+function round(playersSelection) {
+    let computersSelection = computerPlay();
+    let result =playRound(playersSelection, computersSelection);
+    console.log(result);
+    const pElement = document.createElement('p');
+    pElement.textContent = result;
+    summary.append(pElement);
+}
 
 // console.log(playersSelection);
 

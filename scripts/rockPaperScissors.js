@@ -1,20 +1,63 @@
 // start game
 // console.log(game());
 
-// let playersSelection;
-const summary = document.querySelector('.summary')
-const itemButtons = document.querySelectorAll('.item-btn');
+let playersSelection;
+const summary = document.querySelector('.summary');
+// const controls = document.querySelector('controls');
+const startGameButton = document.querySelector('#start-game');
+const playButton = document.querySelector('#play-again');
+const noPlayButton = document.querySelector('#dont-play-again');
+const rpsControlDiv = document.querySelector('.rps-controls');
+const rpsControlButtons = document.querySelectorAll('.control-btn');
+const preGameInstructions = document.querySelector('.pregame-instructions');
+const inGameInstructions = document.querySelector('.ingame-instructions');
+const playAgainText = document.querySelector('.play-again-text');
 let roundNumber = 0;
 let playerWins = 0;
 let computerWins = 0;
 let draws = 0;
 
-itemButtons.forEach((itemButton) => {
+console.log(preGameInstructions);
+console.log(inGameInstructions);
+
+startGameButton.addEventListener('click', () => {
+    console.log('start game!!!');
+    showRpsControls();
+    hidePregameInstructions();
+    showIngameInstuctions();
+    hideStartGameBtn();
+})
+
+playButton.addEventListener('click', () => {
+    playAgain();
+})
+
+noPlayButton.addEventListener('click', () => {
+    console.log('no play again');
+})
+
+rpsControlButtons.forEach((itemButton) => {
     itemButton.addEventListener('click', () => {
         let playersSelection = itemButton.id;
         game(playersSelection);
     })
 })
+
+function hidePregameInstructions() {
+    preGameInstructions.classList.add('no-display');
+}
+
+function showIngameInstuctions() {
+    inGameInstructions.classList.remove('no-display');
+}
+
+function showRpsControls() {
+    rpsControlDiv.classList.remove('no-visibility');
+}
+
+function hideStartGameBtn() {
+    startGameButton.classList.add('no-display')
+}
 
 function game(playersSelection) {
     //increase round number
@@ -71,7 +114,47 @@ function haveWinner(winner) {
     const pElement = document.createElement('p');
     pElement.textContent = `The winner is ${winner}`;
     summary.append(pElement);
+    removeRpsButtons();
+    showAddPlayNoplayButtons();
+    showPlayAgainText();
+    hideIngameInstructions();
+}
+
+function hideIngameInstructions() {
+    inGameInstructions.classList.add('no-display');
+}
+
+function removeRpsButtons() {
+    rpsControlDiv.classList.add('no-visibility');
+}
+
+function showAddPlayNoplayButtons() {
+    playButton.classList.remove('no-display');
+    noPlayButton.classList.remove('no-display');
+}
+
+function playAgain() {
+    hideAddPlayNoPlayButtons();
+    showRpsControls();
+    showIngameInstuctions();
+    hidePlayAgainText();
     resetScores();
+    resetSummary();
+}
+
+// **** NOPLAY() ****
+
+function hidePlayAgainText() {
+    playAgainText.classList.add('no-display');
+}
+
+function showPlayAgainText() {
+    playAgainText.classList.remove('no-display');
+}
+
+function hideAddPlayNoPlayButtons() {
+    playButton.classList.add('no-display');
+    noPlayButton.classList.add('no-display');
 }
 
 function resetScores() {
@@ -79,6 +162,10 @@ function resetScores() {
     playerWins = 0;
     computerWins = 0;
     draws = 0;
+}
+
+function resetSummary() {
+    summary.textContent = '';
 }
 
 // console.log(playersSelection);

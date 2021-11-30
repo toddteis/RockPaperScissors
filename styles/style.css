@@ -25,6 +25,14 @@ button {
     margin: 10px;
 }
 
+.no-display {
+    display: none;
+}
+
+.no-visibility {
+    visibility: hidden;
+}
+
 .container {
     display: flex;
     align-items: center;

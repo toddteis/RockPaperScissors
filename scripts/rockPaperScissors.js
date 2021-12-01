@@ -108,6 +108,7 @@ function playAgain() {
     hidePlayAgainText();
     resetScores();
     resetSummary();
+    hideThankYouForPlayingText();
 }
 
 // create a function that takes two parameters and calculates the winner of the round.

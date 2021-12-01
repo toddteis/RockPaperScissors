@@ -48,9 +48,59 @@ button {
     margin: 20px;
 }
 
-.summary {
-    width: 15%;
+section .display {
+    display: flex;
+    width: 50%;
 }
+
+.players-boxscore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:30%;
+    background-color: bisque;
+    margin: 10px;
+}
+
+.players-boxscore-header {
+    margin: 20px;
+}
+
+.players-boxscore-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+    margin: 20px;
+}
+
+.players-boxscore-score span {
+    font-size: 72px;
+}
+
+.players-boxscore-round-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color:crimson;
+    margin: 20px;
+}
+
+.computer {
+    width:30%;
+    background-color: bisque;
+}
+
+.summary {
+    width: 40%;
+    background-color: burlywood;
+    margin: 10px;
+}
+
 .summary p {
     font-size: 16px;
     margin: 4px;

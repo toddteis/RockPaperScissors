@@ -1,9 +1,4 @@
-// start game
-// console.log(game());
-
-let playersSelection;
 const summary = document.querySelector('.summary');
-// const controls = document.querySelector('controls');
 const startGameButton = document.querySelector('#start-game');
 const playButton = document.querySelector('#play-again');
 const noPlayButton = document.querySelector('#dont-play-again');
@@ -13,6 +8,7 @@ const preGameInstructions = document.querySelector('.pregame-instructions');
 const inGameInstructions = document.querySelector('.ingame-instructions');
 const playAgainText = document.querySelector('.play-again-text');
 const thankYouForPlaying = document.querySelector('.good-bye');
+let playersSelection;
 let roundNumber = 0;
 let playerWins = 0;
 let computerWins = 0;
@@ -54,7 +50,6 @@ function game(playersSelection) {
     updateScores(roundResult);
     // display result
     displayResult(roundResult);
-
     // check if someone has won three
     checkForWinner();
 }
@@ -86,10 +81,10 @@ function displayResult(roundResult) {
 }
 
 function checkForWinner() {
-    if(playerWins === 3){
+    if(playerWins === 5){
         console.log('Player Wins!!!');
         haveWinner('player');
-    } else if (computerWins === 3) {
+    } else if (computerWins === 5) {
         console.log('Computer Wins!!!');
         haveWinner('computer');
     }
@@ -113,29 +108,6 @@ function playAgain() {
     hidePlayAgainText();
     resetScores();
     resetSummary();
-}
-
-// Create a function that takes 3 parameters, playWins, computerWins and draws and return a string
-// of the winner of the 5 rounds and the score.
-function calcOverAllWinner(playerWins, computerWins, draws) {
-    // Create variable to hold the result.
-    let result;
-
-    // If playerWins is greater than computerWins then create a string announcing the player
-    // as the winner with the scores.
-    if (playerWins > computerWins) {
-        result = `Player Wins :) ${playerWins} to ${computerWins}, Draws: ${draws}`;
-        // Else if computerWins is greater than playerWins then create a string announcing the computer
-        // as the winner with the scores.
-    } else if (computerWins > playerWins) {
-        result = `Computer Wins :( ${computerWins} to ${playerWins}, Draws: ${draws}`;
-        // Else create a string announcing its a draw with the scores.
-    } else {
-        result = `Its a draw. :| Player: ${playerWins} Computer: ${computerWins}, Draws: ${draws}`;
-    }
-
-    // return the result variable
-    return result;
 }
 
 // create a function that takes two parameters and calculates the winner of the round.
@@ -181,17 +153,10 @@ function playRound(playerSelection, computerSelection) {
 
 // create function that randomly generates one of: rock, paper or scissors.
 function computerPlay() {
-
-    // Create a variable to hold return value.
     let computerChoice;
 
-    // Randomly generate a number between 1 and 3.
     let randNum = Math.round(Math.random()*2)+1;
 
-
-    // If number is 1 then return rock.
-    // If number is 2 then return paper.
-    // Else return scissors.
     if (randNum === 1) {
         computerChoice = "rock";
     } else if (randNum === 2) {
@@ -272,4 +237,8 @@ function hidePlayAgainText() {
 
 function showThankYouForPlayingText() {
     thankYouForPlaying.classList.remove('no-display')
+}
+
+function hideThankYouForPlayingText() {
+    thankYouForPlaying.classList.add('no-display')
 }

@@ -15,7 +15,6 @@ let computerWins = 0;
 let draws = 0;
 
 startGameButton.addEventListener('click', () => {
-    console.log('start game!!!');
     showRpsControls();
     hidePregameInstructions();
     showIngameInstuctions();
@@ -185,7 +184,7 @@ function resetSummary() {
 // HIDE/SHOW BUTTONS
 
 function removeRpsButtons() {
-    rpsControlDiv.classList.add('no-visibility');
+    rpsControlDiv.classList.add('no-display');
 }
 
 function showAddPlayNoplayButtons() {
@@ -203,7 +202,7 @@ function hideAddPlayNoPlayButtons() {
 }
 
 function showRpsControls() {
-    rpsControlDiv.classList.remove('no-visibility');
+    rpsControlDiv.classList.remove('no-display');
 }
 
 function hideStartGameBtn() {

@@ -1,4 +1,4 @@
-const summary = document.querySelector('.summary');
+const summaryBody = document.querySelector('.summary-body');
 const startGameButton = document.querySelector('#start-game');
 const playButton = document.querySelector('#play-again');
 const noPlayButton = document.querySelector('#dont-play-again');
@@ -76,7 +76,7 @@ function displayResult(roundResult) {
     console.log(roundResult);
     const pElement = document.createElement('p');
     pElement.textContent = `Round ${roundNumber}: ${roundResult}`;
-    summary.append(pElement);
+    summaryBody.append(pElement);
 }
 
 function checkForWinner() {
@@ -93,7 +93,7 @@ function haveWinner(winner) {
     console.log(`the winner is ${winner}.`)
     const pElement = document.createElement('p');
     pElement.textContent = `The winner is ${winner}`;
-    summary.append(pElement);
+    summaryBody.append(pElement);
     removeRpsButtons();
     showAddPlayNoplayButtons();
     showPlayAgainText();
@@ -178,7 +178,7 @@ function resetScores() {
 }
 
 function resetSummary() {
-    summary.textContent = '';
+    summaryBody.textContent = '';
 }
 
 // HIDE/SHOW BUTTONS

@@ -81,15 +81,7 @@ section .display {
     font-size: 72px;
 }
 
-.players-boxscore-round-selection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 150px;
-    background-color:crimson;
-    margin: 20px;
-}
+
 
 .computer {
     width:30%;
@@ -103,10 +95,31 @@ section .display {
 }
 
 .summary-header {
+    display: flex;
+    justify-content: space-between;
     width: auto;
     height: 150px;
     background-color: burlywood;
     margin: 10px 20px;
+}
+
+.summary-players-round-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color:crimson;
+    margin: 20px;
+    font-size: 6em;
+    text-transform: uppercase;
+}
+
+.summary-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6em;
 }
 
 .summary-body {

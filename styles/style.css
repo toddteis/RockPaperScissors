@@ -50,21 +50,33 @@ button {
 
 section .display {
     display: flex;
+    flex-direction: column;
     width: 60%;
-    justify-content: space-around;
+    /* justify-content: center; */
+    align-items: center;
+    min-width: 440px;
+}
+
+section .scores {
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+    width: 60%;
+    min-width: 350px;
+    margin: 10px 0;
 }
 
 .players-boxscore {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    width:30%;
-    background-color: bisque;
+    height: 150px;
+    background-color: rgb(189, 147, 99);
     margin: 10px;
 }
 
 .players-boxscore-header {
-    margin: 20px;
+    margin: 10px;
 }
 
 .players-boxscore-score {
@@ -74,22 +86,16 @@ section .display {
     width: 100px;
     height: 100px;
     background-color: chartreuse;
-    margin: 20px;
+    margin: 10px;
 }
 
 .players-boxscore-score span {
     font-size: 72px;
 }
 
-
-
-.computer {
-    width:30%;
-    background-color: bisque;
-}
-
 .summary {
     width: 60%;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -100,7 +106,7 @@ section .display {
     width: auto;
     height: 150px;
     background-color: burlywood;
-    margin: 10px 20px;
+
 }
 
 .summary-players-round-selection {
@@ -127,7 +133,7 @@ section .display {
     width: auto;
     height: 250px;
     background-color: burlywood;
-    margin: 10px 20px;
+    margin: 10px 0;
 }
 
 .summary p {

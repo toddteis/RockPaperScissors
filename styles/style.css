@@ -125,11 +125,17 @@ section .scores {
     font-size: 6em;
 }
 
-.summary-body {
-    overflow: auto;
-    height: 250px;
-    background-color: burlywood;
+.summary-body-container {
     margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.summary-body {
+    background-color: burlywood;
+    height: 250px;
+    overflow: auto;
+    width: 60%;
 }
 
 .summary p {

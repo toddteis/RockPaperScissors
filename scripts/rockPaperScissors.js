@@ -8,6 +8,7 @@ const preGameInstructions = document.querySelector('.pregame-instructions');
 const inGameInstructions = document.querySelector('.ingame-instructions');
 const playAgainText = document.querySelector('.play-again-text');
 const thankYouForPlaying = document.querySelector('.good-bye');
+const display = document.querySelector('.display');
 let playersSelection;
 let roundNumber = 0;
 let playerWins = 0;
@@ -19,6 +20,7 @@ startGameButton.addEventListener('click', () => {
     hidePregameInstructions();
     showIngameInstuctions();
     hideStartGameBtn();
+    showDisplay();
 })
 
 playButton.addEventListener('click', () => {
@@ -210,6 +212,14 @@ function hideStartGameBtn() {
 }
 
 // HIDE/SHOW TEXTS
+
+function showDisplay() {
+    display.classList.remove('no-visibility');
+}
+
+function hideDisplay() {
+    display.classList.add('no-visibility');
+}
 
 function hidePregameInstructions() {
     preGameInstructions.classList.add('no-display');

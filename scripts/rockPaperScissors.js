@@ -41,6 +41,7 @@ noPlayButton.addEventListener('click', () => {
     resetScores();
     resetSummary();
     hideNoPlayButton();
+    hideDisplay()
 })
 
 rpsControlButtons.forEach((itemButton) => {
@@ -133,6 +134,7 @@ function playAgain() {
     resetScores();
     resetSummary();
     hideThankYouForPlayingText();
+    showDisplay();
 }
 
 // create a function that takes two parameters and calculates the winner of the round.

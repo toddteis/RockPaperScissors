@@ -100,9 +100,11 @@ function updateScores(roundResult) {
 }
 
 function displayResult(roundResult) {
-    const pElement = document.createElement('p');
+    let pElement = document.createElement('p');
+    let origPara = summaryBody.querySelector('p');
     pElement.textContent = `Round ${roundNumber}: ${roundResult}`;
-    summaryBody.append(pElement);
+    // summaryBody.append(pElement);
+    summaryBody.insertBefore(pElement, origPara);
 }
 
 function checkForWinner() {

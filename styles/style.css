@@ -121,8 +121,16 @@ section .scores {
 .summary-display {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    text-align: center;
     font-size: 4em;
+}
+
+.summary-display-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
 }
 
 .summary-body-container {

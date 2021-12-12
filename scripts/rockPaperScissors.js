@@ -119,6 +119,7 @@ function haveWinner(winner) {
     const pElement = document.createElement('p');
     pElement.textContent = `The winner is ${winner}`;
     summaryBody.append(pElement);
+    summaryDisplay.textContent = `${winner} wins`;
     removeRpsButtons();
     showAddPlayNoplayButtons();
     showPlayAgainText();

@@ -52,6 +52,7 @@ rpsControlButtons.forEach((itemButton) => {
 })
 
 function game(playersSelection) {
+    hideSummaryPlayersRoundSelection();
     removeRpsButtons();
     roundNumber++;
     roundResult = round(playersSelection);
@@ -111,7 +112,7 @@ function checkForWinner() {
     if(playerWins === 5){
         haveWinner('player');
     } else if (computerWins === 5) {
-        haveWinner('computer');
+        haveWinner('robot');
     }
 }
 

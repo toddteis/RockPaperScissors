@@ -13,6 +13,8 @@ const summaryDisplay = document.querySelector('.summary-display');
 const playerSelectionDisplay =document.querySelector('.player-selection');
 const computerSelectionDisplay =document.querySelector('.computer-selection');
 const summaryPlayersRoundSelection = document.querySelectorAll('.summary-players-round-selection');
+const playerBoxScore = document.querySelector('#player-score');
+const computerBoxScore = document.querySelector('#computer-score');
 let playersSelection;
 let computersSelection;
 let roundResult;
@@ -75,6 +77,8 @@ async function roundDisplayTiming() {
     displaySelections(playersSelection, computersSelection);
     await sleep(750);
     displayResult(roundResult);
+    await sleep(500);
+    updateBoxScores(roundResult);
     checkForWinner();
 }
 
@@ -190,12 +194,9 @@ function computerPlay() {
 }
 
 function displaySelections(player, computer) {
-    // console.log(computer);
-    // console.log (getFirstLetter(player));
     showSummaryPlayersRoundSelection();
     playerSelectionDisplay.textContent = getFirstLetter(player);
     computerSelectionDisplay.textContent = getFirstLetter(computer);
-    // console.log (getFirstLetter(computer));
 }
 
 function getFirstLetter(selection) {
@@ -206,7 +207,18 @@ function getFirstLetter(selection) {
     } else {
         return 'S';
     }
+}
 
+function updateBoxScores(result) {
+    if(result === "player wins") {
+        console.log("player wins");
+        playerBoxScore.textContent = playerWins;
+    } else if(result === "computer wins") {
+        console.log("computer wins");
+        computerBoxScore.textContent = computerWins;
+    } else {
+        console.log("draw");
+    }
 }
 
 

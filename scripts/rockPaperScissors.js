@@ -166,9 +166,6 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         result = "robot wins";
         // else if player choice is scissors and computer choice is paper, player wins.
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        result = "player wins";
-        // else if player choice is scissors and computer choice is paper, player wins.
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         result = "player wins";
         // else player choice is scissors and computer choice is scissors, its a draw.

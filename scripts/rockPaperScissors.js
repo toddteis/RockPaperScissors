@@ -10,8 +10,10 @@ const playAgainText = document.querySelector('.play-again-text');
 const thankYouForPlaying = document.querySelector('.good-bye');
 const display = document.querySelector('.display');
 const summaryDisplay = document.querySelector('.summary-display');
+const playerSelectionDisplay =document.querySelector('.player-selection');
+const computerSelectionDisplay =document.querySelector('.computer-selection');
 let playersSelection;
-let computerSelection;
+let computersSelection;
 let roundResult;
 let roundNumber = 0;
 let playerWins = 0;
@@ -40,7 +42,7 @@ noPlayButton.addEventListener('click', () => {
 
 rpsControlButtons.forEach((itemButton) => {
     itemButton.addEventListener('click', () => {
-        let playersSelection = itemButton.id;
+        playersSelection = itemButton.id;
         game(playersSelection);
     })
 })
@@ -54,6 +56,24 @@ function game(playersSelection) {
     roundResult = round(playersSelection);
     //increment winner or draw variables
     updateScores(roundResult);
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+async function roundDisplayTiming() {
+    summaryDisplay.textContent = '3';
+    await sleep(500);
+    summaryDisplay.textContent = '2';
+    await sleep(500);
+    summaryDisplay.textContent = '1';
+    await sleep(500);
+    summaryDisplay.textContent = 'Rumble';
+    await sleep(500);
+    displaySelections(playersSelection, computersSelection);
+    displayResult(roundResult);
+    checkForWinner();
 }
 
 function round(playersSelection) {
@@ -167,21 +187,21 @@ function computerPlay() {
     return computerChoice;
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+function displaySelections(player, computer) {
+    console.log(computer);
+    console.log (getFirstLetter(player));
+    console.log (getFirstLetter(computer));
+}
 
-async function roundDisplayTiming() {
-    summaryDisplay.textContent = '3';
-    await sleep(1000);
-    summaryDisplay.textContent = '2';
-    await sleep(1000);
-    summaryDisplay.textContent = '1';
-    await sleep(1000);
-    summaryDisplay.textContent = 'Rumble';
-    await sleep(1000);
-    displayResult(roundResult);
-    checkForWinner();
+function getFirstLetter(selection) {
+    if(selection == 'rock') {
+        return 'R';
+    } else if(selection == 'paper') {
+        return 'P';
+    } else {
+        return 'S';
+    }
+
 }
 
 // RESETS

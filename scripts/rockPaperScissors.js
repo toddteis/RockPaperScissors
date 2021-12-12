@@ -118,8 +118,9 @@ function checkForWinner() {
 function haveWinner(winner) {
     console.log(`the winner is ${winner}.`)
     const pElement = document.createElement('p');
+    let origPara = summaryBody.querySelector('p');
     pElement.textContent = `The winner is ${winner}`;
-    summaryBody.append(pElement);
+    summaryBody.insertBefore(pElement, origPara);
     summaryDisplay.textContent = `${winner} wins`;
     removeRpsButtons();
     showAddPlayNoplayButtons();

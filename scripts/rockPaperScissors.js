@@ -75,6 +75,7 @@ async function roundDisplayTiming() {
     summaryDisplay.textContent = 'Rumble';
     await sleep(500);
     displaySelections(playersSelection, computersSelection);
+    summaryDisplay.textContent = '';
     await sleep(750);
     displayResult(roundResult);
     await sleep(500);
@@ -106,10 +107,8 @@ function displayResult(roundResult) {
 
 function checkForWinner() {
     if(playerWins === 5){
-        console.log('Player Wins!!!');
         haveWinner('player');
     } else if (computerWins === 5) {
-        console.log('Computer Wins!!!');
         haveWinner('computer');
     }
 }
@@ -231,6 +230,10 @@ function resetScores() {
     playerWins = 0;
     computerWins = 0;
     draws = 0;
+    playerBoxScore.textContent = playerWins;
+    computerBoxScore.textContent = computerWins;
+    hideSummaryPlayersRoundSelection();
+    summaryDisplay.textContent = '';
 }
 
 function resetSummary() {

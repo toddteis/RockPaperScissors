@@ -126,13 +126,6 @@ section .scores {
     font-size: 4em;
 }
 
-.summary-display-result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-}
-
 .summary-body-container {
     margin: 10px 0;
     display: flex;

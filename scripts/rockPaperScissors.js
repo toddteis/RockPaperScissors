@@ -92,7 +92,7 @@ function round(playersSelection) {
 function updateScores(roundResult) {
     if(roundResult==="player wins") {
         playerWins++;
-    } else if (roundResult ==='computer wins') {
+    } else if (roundResult ==='robot wins') {
         computerWins++;
     } else {
         draws++;

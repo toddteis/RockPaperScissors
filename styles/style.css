@@ -122,7 +122,7 @@ section .scores {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 6em;
+    font-size: 4em;
 }
 
 .summary-body-container {

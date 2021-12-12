@@ -12,6 +12,7 @@ const display = document.querySelector('.display');
 const summaryDisplay = document.querySelector('.summary-display');
 const playerSelectionDisplay =document.querySelector('.player-selection');
 const computerSelectionDisplay =document.querySelector('.computer-selection');
+const summaryPlayersRoundSelection = document.querySelectorAll('.summary-players-round-selection');
 let playersSelection;
 let computersSelection;
 let roundResult;
@@ -72,6 +73,7 @@ async function roundDisplayTiming() {
     summaryDisplay.textContent = 'Rumble';
     await sleep(500);
     displaySelections(playersSelection, computersSelection);
+    await sleep(750);
     displayResult(roundResult);
     checkForWinner();
 }
@@ -188,9 +190,12 @@ function computerPlay() {
 }
 
 function displaySelections(player, computer) {
-    console.log(computer);
-    console.log (getFirstLetter(player));
-    console.log (getFirstLetter(computer));
+    // console.log(computer);
+    // console.log (getFirstLetter(player));
+    showSummaryPlayersRoundSelection();
+    playerSelectionDisplay.textContent = getFirstLetter(player);
+    computerSelectionDisplay.textContent = getFirstLetter(computer);
+    // console.log (getFirstLetter(computer));
 }
 
 function getFirstLetter(selection) {
@@ -204,7 +209,9 @@ function getFirstLetter(selection) {
 
 }
 
+
 // RESETS
+
 
 function resetScores() {
     roundNumber = 0;
@@ -217,7 +224,9 @@ function resetSummary() {
     summaryBody.textContent = '';
 }
 
+
 // HIDE/SHOW BUTTONS
+
 
 function removeRpsButtons() {
     rpsControlDiv.classList.add('no-display');
@@ -246,6 +255,18 @@ function hideStartGameBtn() {
 }
 
 // HIDE/SHOW TEXTS / SECTIONS
+
+function showSummaryPlayersRoundSelection() {
+    for (let index = 0; index < summaryPlayersRoundSelection.length; index++) {
+        summaryPlayersRoundSelection[index].classList.remove('no-visibility');
+    }
+}
+
+function hideSummaryPlayersRoundSelection() {
+    for (let index = 0; index < summaryPlayersRoundSelection.length; index++) {
+        summaryPlayersRoundSelection[index].classList.add('no-visibility');
+    }
+}
 
 function hideDisplaySummary() {
     summaryDisplay.classList.add('no-visibility');

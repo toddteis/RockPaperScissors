@@ -9,7 +9,10 @@ const inGameInstructions = document.querySelector('.ingame-instructions');
 const playAgainText = document.querySelector('.play-again-text');
 const thankYouForPlaying = document.querySelector('.good-bye');
 const display = document.querySelector('.display');
+const summaryDisplay = document.querySelector('.summary-display');
 let playersSelection;
+let computerSelection;
+let roundResult;
 let roundNumber = 0;
 let playerWins = 0;
 let computerWins = 0;
@@ -45,18 +48,16 @@ rpsControlButtons.forEach((itemButton) => {
 function game(playersSelection) {
     //increase round number
     roundNumber++;
+    showDisplaySummary();
+    roundDisplayTiming();
     //run round
-    let roundResult = round(playersSelection);
+    roundResult = round(playersSelection);
     //increment winner or draw variables
     updateScores(roundResult);
-    // display result
-    displayResult(roundResult);
-    // check if someone has won three
-    checkForWinner();
 }
 
 function round(playersSelection) {
-    let computersSelection = computerPlay();
+    computersSelection = computerPlay();
     let result = playRound(playersSelection, computersSelection);
     return result;
 }
@@ -64,18 +65,14 @@ function round(playersSelection) {
 function updateScores(roundResult) {
     if(roundResult==="player wins") {
         playerWins++;
-        console.log(playerWins);
     } else if (roundResult ==='computer wins') {
         computerWins++;
-        console.log(computerWins);
     } else {
         draws++;
-        console.log(draws);
     }
 }
 
 function displayResult(roundResult) {
-    console.log(roundResult);
     const pElement = document.createElement('p');
     pElement.textContent = `Round ${roundNumber}: ${roundResult}`;
     summaryBody.append(pElement);
@@ -170,6 +167,23 @@ function computerPlay() {
     return computerChoice;
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+async function roundDisplayTiming() {
+    summaryDisplay.textContent = '3';
+    await sleep(1000);
+    summaryDisplay.textContent = '2';
+    await sleep(1000);
+    summaryDisplay.textContent = '1';
+    await sleep(1000);
+    summaryDisplay.textContent = 'Rumble';
+    await sleep(1000);
+    displayResult(roundResult);
+    checkForWinner();
+}
+
 // RESETS
 
 function resetScores() {
@@ -211,7 +225,15 @@ function hideStartGameBtn() {
     startGameButton.classList.add('no-display')
 }
 
-// HIDE/SHOW TEXTS
+// HIDE/SHOW TEXTS / SECTIONS
+
+function hideDisplaySummary() {
+    summaryDisplay.classList.add('no-visibility');
+}
+
+function showDisplaySummary() {
+    summaryDisplay.classList.remove('no-visibility');
+}
 
 function showDisplay() {
     display.classList.remove('no-visibility');
@@ -252,3 +274,4 @@ function showThankYouForPlayingText() {
 function hideThankYouForPlayingText() {
     thankYouForPlaying.classList.add('no-display')
 }
+

@@ -148,7 +148,7 @@ function playRound(playerSelection, computerSelection) {
         result = "draw";
         // else if player choice is rock and computer choice is paper, computer wins.
     } else if ( playerSelection === "rock" && computerSelection === "paper") {
-        result = "computer wins";
+        result = "robot wins";
         // else if player choice is rock and computer choice is scissors, player wins.
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         result = "player wins";
@@ -160,10 +160,10 @@ function playRound(playerSelection, computerSelection) {
         result = "draw";
         // else if player choice is paper and computer choice is scissors, computer wins.
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        result = "computer wins";
+        result = "robot wins";
         // else if player choice is scissors and computer choice is rock, computer wins.
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        result = "computer wins";
+        result = "robot wins";
         // else if player choice is scissors and computer choice is paper, player wins.
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         result = "player wins";
@@ -214,13 +214,11 @@ function getFirstLetter(selection) {
 
 function updateBoxScores(result) {
     if(result === "player wins") {
-        console.log("player wins");
         playerBoxScore.textContent = playerWins;
-    } else if(result === "computer wins") {
-        console.log("computer wins");
+    } else if(result === "robot wins") {
         computerBoxScore.textContent = computerWins;
     } else {
-        console.log("draw");
+        // do nothing
     }
 }
 

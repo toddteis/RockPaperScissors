@@ -52,14 +52,12 @@ rpsControlButtons.forEach((itemButton) => {
 })
 
 function game(playersSelection) {
-    //increase round number
+    removeRpsButtons();
     roundNumber++;
+    roundResult = round(playersSelection);
+    updateScores(roundResult);
     showDisplaySummary();
     roundDisplayTiming();
-    //run round
-    roundResult = round(playersSelection);
-    //increment winner or draw variables
-    updateScores(roundResult);
 }
 
 function sleep(ms) {
@@ -81,6 +79,7 @@ async function roundDisplayTiming() {
     displayResult(roundResult);
     await sleep(500);
     updateBoxScores(roundResult);
+    showRpsControls()
     checkForWinner();
 }
 
